@@ -2,6 +2,7 @@
 using DTC.Models.F16;
 using DTC.Models.FA18;
 using DTC.Models.AH64;
+using DTC.Models.A10CII;
 using System;
 using System.Collections.Generic;
 
@@ -20,11 +21,15 @@ namespace DTC.Models.Presets
 				{
 					return "F/A-18C";
 				}
-				else if (Model == AircraftModel.AH64D)
-				{
-				    return "AH-64D";
-				}
-				throw new Exception();
+                else if (Model == AircraftModel.AH64D)
+                {
+                    return "AH-64D";
+                }
+                else if (Model == AircraftModel.A10CII)
+                {
+                    return "A-10CII";
+                }
+                throw new Exception();
 			}
 		}
 
@@ -56,7 +61,11 @@ namespace DTC.Models.Presets
 			{
 				return typeof(AH64Configuration);
 			}
-			throw new Exception();
+            else if (Model == AircraftModel.A10CII)
+            {
+                return typeof(A10CIIConfiguration);
+            }
+            throw new Exception();
 		}
 
 		public Preset CreatePreset(string name, IConfiguration cfg = null)
@@ -91,7 +100,17 @@ namespace DTC.Models.Presets
 				Presets.Add(p);
 				return p;
 			    }
-			else
+            else if (Model == AircraftModel.A10CII)
+            {
+                if (cfg == null)
+                {
+                    cfg = new A10CIIConfiguration();
+                }
+                var p = new Preset(name, cfg);
+                Presets.Add(p);
+                return p;
+            }
+            else
 			{
 				throw new Exception();
 			}

@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\A10CII\A10CIIConfiguration.cs" />
+    <Compile Include="Models\A10CII\A10CIIUpload.cs" />
+    <Compile Include="Models\A10CII\A10CIICommands.cs" />
+    <Compile Include="Models\A10CII\Upload\WaypointBuilder.cs" />
+    <Compile Include="Models\A10CII\Waypoints\Waypoint.cs" />
+    <Compile Include="Models\A10CII\Waypoints\WaypointSystem.cs" />
     <Compile Include="Models\AH64\Waypoints\Ident.cs" />
     <Compile Include="Models\AH64\Waypoints\PointType.cs" />
     <Compile Include="Models\DCS\Emitters.cs" />
@@ -156,6 +162,30 @@
     <Compile Include="Models\Presets\Aircraft.cs" />
     <Compile Include="Models\Presets\Preset.cs" />
     <Compile Include="Models\WaypointDB\WaypointDB.cs" />
+    <Compile Include="UI\Aircrafts\A10CII\LoadSavePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\LoadSavePage.Designer.cs">
+      <DependentUpon>LoadSavePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\UploadToJetPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\UploadToJetPage.Designer.cs">
+      <DependentUpon>UploadToJetPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\WaypointEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\WaypointEdit.Designer.cs">
+      <DependentUpon>WaypointEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\WaypointsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Aircrafts\A10CII\WaypointsPage.Designer.cs">
+      <DependentUpon>WaypointsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Aircrafts\AH64\UploadToHeliPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -446,6 +476,19 @@
     <Compile Include="UI\CommonPages\PresetsPage.Designer.cs">
       <DependentUpon>PresetsPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Aircrafts\A10CII\LoadSavePage.resx">
+      <DependentUpon>LoadSavePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Aircrafts\A10CII\UploadToJetPage.resx">
+      <DependentUpon>UploadToJetPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Aircrafts\A10CII\WaypointEdit.resx">
+      <DependentUpon>WaypointEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Aircrafts\A10CII\WaypointsPage.resx">
+      <DependentUpon>WaypointsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Aircrafts\AH64\LoadSavePage.resx">
       <DependentUpon>LoadSavePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -621,6 +664,7 @@
     <None Include="Resources\F16.png" />
     <None Include="Resources\FA18.png" />
     <None Include="Resources\AH64.png" />
+    <None Include="Resources\A10CII.png" />
     <Content Include="Resources\Iconleak-Atrous-Disk.ico" />
     <None Include="Resources\Waypoints.png" />
     <Content Include="Structure.txt" />

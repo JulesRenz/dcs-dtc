@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DTC.Models.F16;
 using DTC.Models.FA18;
 using DTC.Models.AH64;
+using DTC.Models.A10CII;
 
 namespace DTC.UI.CommonPages
 {
@@ -73,7 +74,17 @@ namespace DTC.UI.CommonPages
 				    new Aircrafts.AH64.RadioPage(this, cfg.Radios)
 				};
 			}
-			throw new Exception();
+			else if (_aircraft.Model == AircraftModel.A10CII)
+			{
+                var cfg = (A10CIIConfiguration)configuration;
+                return new AircraftSettingPage[]
+                {
+                    new Aircrafts.A10CII.UploadToJetPage(this, cfg),
+                    new Aircrafts.A10CII.LoadSavePage(this, cfg),
+                    new Aircrafts.A10CII.WaypointsPage(this, cfg.Waypoints)
+                };
+            }
+            throw new Exception();
 		}
 
 		private void SetPage(AircraftSettingPage page)
