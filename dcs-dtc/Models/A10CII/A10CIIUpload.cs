@@ -10,37 +10,37 @@ using System.Linq;
 
 namespace DTC.Models
 {
-	public class A10CIIUpload
+    public class A10CIIUpload
     {
-		private int tcpPort = 42070;
+        private int tcpPort = 42070;
 
-		private A10CIIConfiguration _cfg;
-		private A10CIICommands a10cii = new A10CIICommands();
+        private A10CIIConfiguration _cfg;
+        private A10CIICommands a10cii = new A10CIICommands();
 
-		public A10CIIUpload(A10CIIConfiguration cfg)
-		{
-			tcpPort = Settings.TCPSendPort;
+        public A10CIIUpload(A10CIIConfiguration cfg)
+        {
+            tcpPort = Settings.TCPSendPort;
 
-			_cfg = cfg;
-		}
-        	internal A10CIIConfiguration Cfg => _cfg;
+            _cfg = cfg;
+        }
+        internal A10CIIConfiguration Cfg => _cfg;
 
-        	public void Load()
-		{
-			var sb = new StringBuilder();
+        public void Load()
+        {
+            var sb = new StringBuilder();
 
-			if (_cfg.Waypoints.EnableUpload)
-			{
-				var waypointBuilder = new WaypointBuilder(_cfg, a10cii, sb);
-				waypointBuilder.Build();
-			}
+            if (_cfg.Waypoints.EnableUpload)
+            {
+                var waypointBuilder = new WaypointBuilder(_cfg, a10cii, sb);
+                waypointBuilder.Build();
+            }
 
-			if (sb.Length > 0)
-			{
-				sb.Remove(sb.Length - 1, 1);
-			}
+            if (sb.Length > 0)
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }
 
-			var str = sb.ToString();
+            var str = sb.ToString();
 
             if (str != "")
             {
@@ -63,5 +63,5 @@ namespace DTC.Models
                 }
             }
         }
-	}
+    }
 }

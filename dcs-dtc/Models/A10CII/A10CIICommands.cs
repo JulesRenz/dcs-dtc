@@ -4,18 +4,18 @@ using DTC.Models.DCS;
 
 namespace DTC.Models.A10CII
 {
-	public class A10CIICommands : IAircraftDeviceManager
-	{
-		private Dictionary<string, Device> Devices = new Dictionary<string, Device>();
+    public class A10CIICommands : IAircraftDeviceManager
+    {
+        private Dictionary<string, Device> Devices = new Dictionary<string, Device>();
 
-		public A10CIICommands()
-		{
-			var delay = Settings.CommandDelayMs;
+        public A10CIICommands()
+        {
+            var delay = Settings.CommandDelayMs;
 
-			var delayAlphaNum = delay / 4;
+            var delayAlphaNum = delay / 4;
             var delayRadio = delay / 4;
 
-			var cdu = new Device(9, "CDU");
+            var cdu = new Device(9, "CDU");
             cdu.AddCommand(new Command(3000 + 1, "L1", delay, 1));
             cdu.AddCommand(new Command(3000 + 2, "L2", delay, 1));
             cdu.AddCommand(new Command(3000 + 3, "L3", delay, 1));
@@ -101,14 +101,14 @@ namespace DTC.Models.A10CII
 
         }
 
-		private void AddDevice(Device d)
-		{
-			Devices.Add(d.Name, d);
-		}
+        private void AddDevice(Device d)
+        {
+            Devices.Add(d.Name, d);
+        }
 
-		public Device GetDevice(string id)
-		{
-			return Devices[id];
-		}
-	}
+        public Device GetDevice(string id)
+        {
+            return Devices[id];
+        }
+    }
 }
